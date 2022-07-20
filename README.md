@@ -45,7 +45,7 @@ created
 ### /api/photos
 
 ```angular2html
-  {
+{
     "photo_list": [
         [
             "bdee9966-0bb5-4301-b893-908902af518e.jpeg",
