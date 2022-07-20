@@ -3,9 +3,15 @@ from flask import Flask
 app = Flask(__name__)
 from flask import request
 
+
 @app.route('/api/login')
 def hello_world():  # put application's code here
-    return 'Hello World!'
+    return """
+    {
+    "access_token": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJmcmVzaCI6ZmFsc2UsImlhdCI6MTY1ODI5MTUxOCwianRpIjoiZGY3MWYwMjctMmE5Yy00ZWEwLTkyMDUtYTA0ZWU5YTA1NTFkIiwidHlwZSI6ImFjY2VzcyIsInN1YiI6InFAcXEucSIsIm5iZiI6MTY1ODI5MTUxOCwiZXhwIjoxNjU4MjkyNzE4fQ.K0F__RL0flRzZmvQba5WDXzko8Lrt52OH0uHlUMGEPA",
+    "refresh_token": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJmcmVzaCI6ZmFsc2UsImlhdCI6MTY1ODI5MTUxOCwianRpIjoiNGNjNWM3ZjYtZWUzOS00NzRjLWFhM2UtZGY1NTEzMDg0NTNhIiwidHlwZSI6InJlZnJlc2giLCJzdWIiOiJxQHFxLnEiLCJuYmYiOjE2NTgyOTE1MTgsImV4cCI6MTY1OTUwMTExOH0.Jr1epo4dLFzZsOAwFVWBUu2o9pJICWDxWU724IO32iM"
+}
+    """
 
 
 @app.route('/api/photos', methods=['post'])
@@ -13,7 +19,7 @@ def postPhotos():
     file = request.files['file']
     print(file.filename)
     print(file.content_type)
-    return 'ok'
+    return 'created'
 
 
 @app.route('/api/photos/<int:photo_id>', methods=['get'])
@@ -24,7 +30,6 @@ def getPhotosById():
 
 @app.route('/api/photos', methods=['get'])
 def getPhotos():
-
     return """
     {
     "photo_list": [
@@ -47,7 +52,6 @@ def getPhotos():
     ]
 }
     """
-
 
 
 if __name__ == '__main__':
