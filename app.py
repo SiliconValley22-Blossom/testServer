@@ -18,7 +18,7 @@ def hello_world():  # put application's code here
     """
 
 @app.route('/api/users', methods=['post'])
-def hello_world():  # put application's code here
+def apiUsers():  # put application's code here
     print(request.get_json())
     
     return "ok"
