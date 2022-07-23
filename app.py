@@ -7,7 +7,7 @@ CORS(app, supports_credentials=True)
 
 
 @app.route('/api/login', methods=['post'])
-def hello_world():  # put application's code here
+def postLogin():  # put application's code here
     print(request.get_json())
     
     return """
@@ -17,7 +17,7 @@ def hello_world():  # put application's code here
     }
     """
 
-@app.route('/api/users', methods=['post'])
+ @app.route('/api/users', methods=['post'])
 def apiUsers():  # put application's code here
     print(request.get_json())
     
@@ -29,7 +29,13 @@ def postPhotos():
     file = request.files['file']
     print(file.filename)
     print(file.content_type)
-    return 'created'
+    return """
+        {
+           " black_photo_id":1,
+           " color_photo_id":2
+        }
+
+    """
 
 
 @app.route('/api/photos/<int:photo_id>', methods=['get'])

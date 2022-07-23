@@ -39,8 +39,18 @@ form data - flie binary
 ##### response
 
 ```angular2html
-created
+{
+    "black_photo_id":1,
+    "color_photo_id":2  
+}
 ```
+
+### /api/photos/<photo_id>
+```
+        {"photo": 'test/newFile.png'}
+```
+
+
 
 ### /api/photos
 
