@@ -17,7 +17,7 @@ def postLogin():  # put application's code here
     }
     """
 
- @app.route('/api/users', methods=['post'])
+@app.route('/api/users', methods=['post'])
 def apiUsers():  # put application's code here
     print(request.get_json())
     
