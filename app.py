@@ -6,7 +6,7 @@ app = Flask(__name__)
 CORS(app, supports_credentials=True)
 
 
-@app.route('/api/login')
+@app.route('/api/login',  methods=['post'])
 def hello_world():  # put application's code here
     return """
     {
@@ -14,12 +14,6 @@ def hello_world():  # put application's code here
     "refresh_token": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJmcmVzaCI6ZmFsc2UsImlhdCI6MTY1ODI5MTUxOCwianRpIjoiNGNjNWM3ZjYtZWUzOS00NzRjLWFhM2UtZGY1NTEzMDg0NTNhIiwidHlwZSI6InJlZnJlc2giLCJzdWIiOiJxQHFxLnEiLCJuYmYiOjE2NTgyOTE1MTgsImV4cCI6MTY1OTUwMTExOH0.Jr1epo4dLFzZsOAwFVWBUu2o9pJICWDxWU724IO32iM"
 }
     """
-
-@app.route('/api/users', methods=['post'])
-def apiUsers():  # put application's code here
-    print(request.get_json())
-    
-    return "ok"
 
 @app.route('/api/users', methods=['post'])
 def jkl():
@@ -36,7 +30,12 @@ def postPhotos():
     file = request.files['file']
     print(file.filename)
     print(file.content_type)
-    return 'created'
+    return """
+    {
+    "black_photo_id":1,
+    "color_photo_id":2  
+}
+    """
 
 
 @app.route('/api/photos/<int:photo_id>', methods=['get'])
@@ -49,23 +48,23 @@ def getPhotosById(photo_id):
 @app.route('/api/photos', methods=['get'])
 def posttPhotos():
     return """
-    {
+{
     "photo_list": [
         [
-            "bdee9966-0bb5-4301-b893-908902af518e.jpeg",
-            "f96cc436-be73-4816-835b-3e492cd5c69a.jpeg"
+            "black/1360f998-3ecd-431f-a0e1-ce607bf7d320.jpeg",
+            "color/74f90258-6e8c-4f0f-8e03-908f1c79787a.jpeg"
         ],
         [
-            "eb213a07-5261-40b0-a41d-4deeb376ee08.jpeg",
-            "de05c8f6-e4ea-4079-9307-e8e0c07c214a.jpeg"
+            "black/1360f998-3ecd-431f-a0e1-ce607bf7d320.jpeg",
+            "color/74f90258-6e8c-4f0f-8e03-908f1c79787a.jpeg"
         ],
         [
-            "274ae8ea-335a-430b-8326-3c8e63a3cce0.jpeg",
-            "8f9731fa-95a1-4e95-8ce5-c3ead6923c50.jpeg"
+            "black/1360f998-3ecd-431f-a0e1-ce607bf7d320.jpeg",
+            "color/74f90258-6e8c-4f0f-8e03-908f1c79787a.jpeg"
         ],
         [
-            "e0664209-bd26-41a2-a0c1-083f00dc4f6b.jpeg",
-            "1df01092-5b63-4c03-a973-100e367c36d3.jpeg"
+            "black/1360f998-3ecd-431f-a0e1-ce607bf7d320.jpeg",
+            "color/74f90258-6e8c-4f0f-8e03-908f1c79787a.jpeg"
         ]
     ]
 }
