@@ -1,6 +1,8 @@
 from flask import Flask
 from flask import request
 from flask_cors import CORS
+from flask import jsonify
+from flask_jwt_extended import set_access_cookies, set_refresh_cookies
 
 app = Flask(__name__)
 CORS(app, supports_credentials=True)
@@ -8,12 +10,14 @@ CORS(app, supports_credentials=True)
 
 @app.route('/api/login',  methods=['post'])
 def hello_world():  # put application's code here
-    return """
-    {
-    "access_token": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJmcmVzaCI6ZmFsc2UsImlhdCI6MTY1ODI5MTUxOCwianRpIjoiZGY3MWYwMjctMmE5Yy00ZWEwLTkyMDUtYTA0ZWU5YTA1NTFkIiwidHlwZSI6ImFjY2VzcyIsInN1YiI6InFAcXEucSIsIm5iZiI6MTY1ODI5MTUxOCwiZXhwIjoxNjU4MjkyNzE4fQ.K0F__RL0flRzZmvQba5WDXzko8Lrt52OH0uHlUMGEPA",
-    "refresh_token": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJmcmVzaCI6ZmFsc2UsImlhdCI6MTY1ODI5MTUxOCwianRpIjoiNGNjNWM3ZjYtZWUzOS00NzRjLWFhM2UtZGY1NTEzMDg0NTNhIiwidHlwZSI6InJlZnJlc2giLCJzdWIiOiJxQHFxLnEiLCJuYmYiOjE2NTgyOTE1MTgsImV4cCI6MTY1OTUwMTExOH0.Jr1epo4dLFzZsOAwFVWBUu2o9pJICWDxWU724IO32iM"
-}
-    """
+    resp = jsonify({'message': 'Login Successfully'})
+    set_access_cookies(resp, "access")
+    set_refresh_cookies(resp, "refresh")
+    return resp
+
+@app.route('/api/logout',  methods=['post'])
+def logout():  # put application's code here
+    return "ok"
 
 @app.route('/api/users', methods=['post'])
 def jkl():
