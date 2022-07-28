@@ -3,21 +3,24 @@ from flask import request
 from flask_cors import CORS
 from flask import jsonify
 import datetime
-from flask_jwt_extended import set_access_cookies, set_refresh_cookies
+from flask_jwt_extended import set_access_cookies, set_refresh_cookies, create_access_token, create_refresh_token, JWTManager
 
 app = Flask(__name__)
 
 app.config['JWT_SECRET_KEY'] = "qwer"
 app.config['JWT_ACCESS_TOKEN_EXPIRES'] =datetime.timedelta(hours=1)
 app.config['JWT_REFRESH_TOKEN_EXPIRES'] = datetime.timedelta(days=14)
-CORS(app, supports_credentials=True)
 
+jwt = JWTManager(app)
+
+CORS(app, supports_credentials=True)
 
 @app.route('/api/login',  methods=['post'])
 def hello_world():  # put application's code here
     resp = jsonify({'message': 'Login Successfully'})
-    set_access_cookies(resp, "access")
-    set_refresh_cookies(resp, "refresh")
+    
+    set_access_cookies(resp,create_access_token(identity="access"))
+    set_refresh_cookies(resp,create_refresh_token(identity="refresh"))
     return resp
 
 @app.route('/api/logout',  methods=['post'])
