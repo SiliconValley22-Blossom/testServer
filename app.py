@@ -2,9 +2,14 @@ from flask import Flask
 from flask import request
 from flask_cors import CORS
 from flask import jsonify
+import datetime
 from flask_jwt_extended import set_access_cookies, set_refresh_cookies
 
 app = Flask(__name__)
+
+app.config['JWT_SECRET_KEY'] = "qwer"
+app.config['JWT_ACCESS_TOKEN_EXPIRES'] =datetime.timedelta(hours=1)
+app.config['JWT_REFRESH_TOKEN_EXPIRES'] = datetime.timedelta(days=14)
 CORS(app, supports_credentials=True)
 
 
