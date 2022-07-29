@@ -49,6 +49,23 @@ def postPhotos():
 }
     """
 
+def getUser():
+
+    return """
+    {
+        "email":"asdf",
+        "nickname":"cccc",
+        "created_at": "Fri, 29 Jul 2022 07:41:44 GMT",
+        "user_id":12
+    }
+    """
+
+def patchUser():
+    print(request.data['password'])
+    print(request.data['new_password'])
+    return "ok"
+
+
 
 @app.route('/api/photos/<int:photo_id>', methods=['get'])
 def getPhotosById(photo_id):
@@ -59,7 +76,9 @@ def getPhotosById(photo_id):
 
 @app.route('/api/photos', methods=['get'])
 def posttPhotos():
-    return """
+    param = request.args.get('userId')
+    if param is None:
+        return """
 {
     "photo_list": [
         [
@@ -81,6 +100,29 @@ def posttPhotos():
     ]
 }
     """
+    return """
+{
+    "photo_list": [
+        [
+            "color/1360f998-3ecd-431f-a0e1-ce607bf7d320.jpeg",
+            "black/74f90258-6e8c-4f0f-8e03-908f1c79787a.jpeg"
+        ],
+        [
+            "color/1360f998-3ecd-431f-a0e1-ce607bf7d320.jpeg",
+            "black/74f90258-6e8c-4f0f-8e03-908f1c79787a.jpeg"
+        ],
+        [
+            "color/1360f998-3ecd-431f-a0e1-ce607bf7d320.jpeg",
+            "black/74f90258-6e8c-4f0f-8e03-908f1c79787a.jpeg"
+        ],
+        [
+            "color/1360f998-3ecd-431f-a0e1-ce607bf7d320.jpeg",
+            "black/74f90258-6e8c-4f0f-8e03-908f1c79787a.jpeg"
+        ]
+    ]
+}
+    """
+
 
 
 if __name__ == '__main__':
