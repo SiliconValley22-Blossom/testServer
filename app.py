@@ -156,7 +156,7 @@ def getAdmin():
         }
     ]
     """
-@app.route('/api/users', methods=['delete'])
+@app.route('/api/admin/users', methods=['delete'])
 def deleteUser():
     return 204
 
