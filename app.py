@@ -126,10 +126,9 @@ def posttPhotos():
 }
     """
 
-@app.route('api/admin/users', methods=['get', 'delete'])
+@app.route('/api/admin/users', methods=['get'])
 def getAdmin():
-    if request.method=='get':
-        return """
+    return """
     {
         {
             "created_at": "Thu, 21 Jul 2022 12:46:36 GMT",
@@ -156,9 +155,10 @@ def getAdmin():
             "user_id": 9
         }
     ]
-        """
-    if request.method=='delete':
-        return 204
+    """
+@app.route('/api/users', methods=['delete'])
+def deleteUser():
+    return 204
 
 @app.route('/api/login/check', methods=['get'])
 def checkLogin():
