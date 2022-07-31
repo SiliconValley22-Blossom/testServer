@@ -129,7 +129,7 @@ def posttPhotos():
 @app.route('/api/admin/users', methods=['get'])
 def getAdmin():
     return """
-    {
+    [
         {
             "created_at": "Thu, 21 Jul 2022 12:46:36 GMT",
             "email": "test@google.com",
