@@ -48,18 +48,21 @@ def postPhotos():
     "color_photo_id":2  
 }
     """
-
+@app.route('/api/users', methods=['get'])
 def getUser():
 
     return """
     {
-        "email":"asdf",
-        "nickname":"cccc",
-        "created_at": "Fri, 29 Jul 2022 07:41:44 GMT",
-        "user_id":12
+         "user_id": 0,
+          "email": "string",
+          "nickname": "string",
+          "created_at": "2022-07-31T09:17:18.078Z",
+          "updated_at": "2022-07-31T09:17:18.078Z",
+          "is_deleted": true
     }
     """
 
+@app.route('/api/users', methods=['patch'])
 def patchUser():
     print(request.data['password'])
     print(request.data['new_password'])
@@ -123,7 +126,47 @@ def posttPhotos():
 }
     """
 
+@app.route('api/admin/users', methods=['get', 'delete'])
+def getAdmin():
+    if request.method=='get':
+        return """
+    {
+        {
+            "created_at": "Thu, 21 Jul 2022 12:46:36 GMT",
+            "email": "test@google.com",
+            "is_deleted": false,
+            "nickname": "TEST",
+            "updated_at": "Thu, 21 Jul 2022 12:46:36 GMT",
+            "user_id": 7
+        },
+        {
+            "created_at": "Fri, 22 Jul 2022 06:44:45 GMT",
+            "email": "aaa1",
+            "is_deleted": false,
+            "nickname": "test",
+            "updated_at": "Fri, 22 Jul 2022 06:44:45 GMT",
+            "user_id": 8
+        },
+        {
+            "created_at": "Tue, 26 Jul 2022 06:04:05 GMT",
+            "email": "asdf",
+            "is_deleted": false,
+            "nickname": "123",
+            "updated_at": "Tue, 26 Jul 2022 06:04:05 GMT",
+            "user_id": 9
+        }
+    ]
+        """
+    if request.method=='delete':
+        return 204
 
+@app.route('/api/login/check', methods=['get'])
+def checkLogin():
+    return jsonify({"is_login":True})
+
+@app.route('/api/users/reset-pw', methods=['post'])
+def resetPw():
+    return 200
 
 if __name__ == '__main__':
     app.run()
