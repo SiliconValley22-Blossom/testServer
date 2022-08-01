@@ -31,10 +31,10 @@ def logout():  # put application's code here
 @app.route('/api/users', methods=['post'])
 def jkl():
     print(request)
-    print(request.data)
-    print(request.data['email'])
-    print(request.data['password'])
-    print(request.data['nickname'])
+    print(request.get_json())
+    print(request.get_json()['email'])
+    print(request.get_json()['password'])
+    print(request.get_json()['nickname'])
     return 'ok'
 
 
@@ -154,7 +154,7 @@ def deleteUser():
 
 @app.route('/api/login/check', methods=['get'])
 def checkLogin():
-    return jsonify({"is_login":True})
+    return jsonify({"is_login":False})
 
 @app.route('/api/users/reset-password', methods=['post'])
 def resetPw():
