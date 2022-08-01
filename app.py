@@ -4,6 +4,7 @@ from flask_cors import CORS
 from flask import jsonify
 import datetime
 from flask_jwt_extended import set_access_cookies, set_refresh_cookies, create_access_token, create_refresh_token, JWTManager
+from werkzeug.exceptions import Unauthorized
 
 app = Flask(__name__)
 
@@ -160,6 +161,10 @@ def resetPw():
 @app.route('/api/refresh', methods=['get'])
 def refreshToken():
     return "200"
+
+@app.route('/api/error')
+def produce401Error():
+    raise Unauthorized(description="401 error")
 
 
 if __name__ == '__main__':
