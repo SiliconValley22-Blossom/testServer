@@ -148,6 +148,8 @@ def getAdmin():
 
 @app.route('/api/admin/users', methods=['delete'])
 def deleteUser():
+    id=request.data["id_list"]
+    print(id)
     return "204"
 
 @app.route('/api/login/check', methods=['get'])
@@ -156,6 +158,7 @@ def checkLogin():
 
 @app.route('/api/users/reset-password', methods=['post'])
 def resetPw():
+    # 이메일 틀리면 401
     return "200"
 
 @app.route('/api/refresh', methods=['get'])
