@@ -83,59 +83,59 @@ def posttPhotos():
     if param is None:
         return jsonify({
             "photo_list": [
-                {
+            [
                 "color/1360f998-3ecd-431f-a0e1-ce607bf7d320.jpeg",
                 "color/e34ebf55-2b07-4911-b341-ae6de27fcaca.jpeg"
-            },
-            {
+            ],
+            [
                 "color/1360f998-3ecd-431f-a0e1-ce607bf7d320.jpeg",
                 "color/fd0dc262-9fa4-4b00-8ed5-0b91bc0194d8.jpeg"
-            },
-            {
+            ],
+            [
                 "color/1360f998-3ecd-431f-a0e1-ce607bf7d320.jpeg",
                 "color/e34ebf55-2b07-4911-b341-ae6de27fcaca.jpeg"
-            },
-                {
+            ],
+                [
                     "color/1360f998-3ecd-431f-a0e1-ce607bf7d320.jpeg",
                     "color/fd0dc262-9fa4-4b00-8ed5-0b91bc0194d8.jpeg"
-                },
-                {
+                ],
+                [
                     "color/1360f998-3ecd-431f-a0e1-ce607bf7d320.jpeg",
                     "color/e34ebf55-2b07-4911-b341-ae6de27fcaca.jpeg"
-                },
-                {
+                ],
+                [
                     "color/1360f998-3ecd-431f-a0e1-ce607bf7d320.jpeg",
                     "color/fd0dc262-9fa4-4b00-8ed5-0b91bc0194d8.jpeg"
-                }
+                ]
             ]
         })
 
     return jsonify({
         "photo_list": [
-            {
+            [
                 "color/1360f998-3ecd-431f-a0e1-ce607bf7d320.jpeg",
                 "color/e34ebf55-2b07-4911-b341-ae6de27fcaca.jpeg"
-            },
-            {
+            ],
+            [
                 "color/1360f998-3ecd-431f-a0e1-ce607bf7d320.jpeg",
                 "color/fd0dc262-9fa4-4b00-8ed5-0b91bc0194d8.jpeg"
-            },
-            {
+            ],
+            [
                 "color/1360f998-3ecd-431f-a0e1-ce607bf7d320.jpeg",
                 "color/e34ebf55-2b07-4911-b341-ae6de27fcaca.jpeg"
-            },
-            {
+            ],
+            [
                 "color/1360f998-3ecd-431f-a0e1-ce607bf7d320.jpeg",
                 "color/fd0dc262-9fa4-4b00-8ed5-0b91bc0194d8.jpeg"
-            },
-            {
+            ],
+            [
                 "color/1360f998-3ecd-431f-a0e1-ce607bf7d320.jpeg",
                 "color/e34ebf55-2b07-4911-b341-ae6de27fcaca.jpeg"
-            },
-                {
+            ],
+                [
                     "color/1360f998-3ecd-431f-a0e1-ce607bf7d320.jpeg",
                     "color/fd0dc262-9fa4-4b00-8ed5-0b91bc0194d8.jpeg"
-                }
+                ]
         ]
     })
 
