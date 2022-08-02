@@ -63,8 +63,9 @@ def getUser():
 
 @app.route('/api/users', methods=['patch'])
 def patchUser():
-    print(request.data['password'])
-    print(request.data['new_password'])
+
+    print(request.get_json()['password'])
+    print(request.get_json()['new_password'])
     return "200"
 
 
@@ -84,16 +85,28 @@ def posttPhotos():
             "photo_list": [
                 {
                 "color/1360f998-3ecd-431f-a0e1-ce607bf7d320.jpeg",
-                "black/74f90258-6e8c-4f0f-8e03-908f1c79787a.jpeg"
+                "color/e34ebf55-2b07-4911-b341-ae6de27fcaca.jpeg"
             },
             {
                 "color/1360f998-3ecd-431f-a0e1-ce607bf7d320.jpeg",
-                "black/74f90258-6e8c-4f0f-8e03-908f1c79787a.jpeg"
+                "color/fd0dc262-9fa4-4b00-8ed5-0b91bc0194d8.jpeg"
             },
             {
                 "color/1360f998-3ecd-431f-a0e1-ce607bf7d320.jpeg",
-                "black/74f90258-6e8c-4f0f-8e03-908f1c79787a.jpeg"
-            }
+                "color/e34ebf55-2b07-4911-b341-ae6de27fcaca.jpeg"
+            },
+                {
+                    "color/1360f998-3ecd-431f-a0e1-ce607bf7d320.jpeg",
+                    "color/fd0dc262-9fa4-4b00-8ed5-0b91bc0194d8.jpeg"
+                },
+                {
+                    "color/1360f998-3ecd-431f-a0e1-ce607bf7d320.jpeg",
+                    "color/e34ebf55-2b07-4911-b341-ae6de27fcaca.jpeg"
+                },
+                {
+                    "color/1360f998-3ecd-431f-a0e1-ce607bf7d320.jpeg",
+                    "color/fd0dc262-9fa4-4b00-8ed5-0b91bc0194d8.jpeg"
+                }
             ]
         })
 
@@ -101,16 +114,28 @@ def posttPhotos():
         "photo_list": [
             {
                 "color/1360f998-3ecd-431f-a0e1-ce607bf7d320.jpeg",
-                "black/74f90258-6e8c-4f0f-8e03-908f1c79787a.jpeg"
+                "color/e34ebf55-2b07-4911-b341-ae6de27fcaca.jpeg"
             },
             {
                 "color/1360f998-3ecd-431f-a0e1-ce607bf7d320.jpeg",
-                "black/74f90258-6e8c-4f0f-8e03-908f1c79787a.jpeg"
+                "color/fd0dc262-9fa4-4b00-8ed5-0b91bc0194d8.jpeg"
             },
             {
                 "color/1360f998-3ecd-431f-a0e1-ce607bf7d320.jpeg",
-                "black/74f90258-6e8c-4f0f-8e03-908f1c79787a.jpeg"
-            }
+                "color/e34ebf55-2b07-4911-b341-ae6de27fcaca.jpeg"
+            },
+            {
+                "color/1360f998-3ecd-431f-a0e1-ce607bf7d320.jpeg",
+                "color/fd0dc262-9fa4-4b00-8ed5-0b91bc0194d8.jpeg"
+            },
+            {
+                "color/1360f998-3ecd-431f-a0e1-ce607bf7d320.jpeg",
+                "color/e34ebf55-2b07-4911-b341-ae6de27fcaca.jpeg"
+            },
+                {
+                    "color/1360f998-3ecd-431f-a0e1-ce607bf7d320.jpeg",
+                    "color/fd0dc262-9fa4-4b00-8ed5-0b91bc0194d8.jpeg"
+                }
         ]
     })
 
@@ -148,7 +173,7 @@ def getAdmin():
 
 @app.route('/api/admin/users', methods=['delete'])
 def deleteUser():
-    id=request.data["id_list"]
+    id=request.get_json()["id_list"]
     print(id)
     return "204"
 
